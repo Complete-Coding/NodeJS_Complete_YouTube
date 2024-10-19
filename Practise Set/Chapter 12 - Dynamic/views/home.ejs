@@ -1,0 +1,31 @@
+<%- include('partials/head') %>
+  </head>
+  <body>
+    <%- include('partials/nav') %>
+    <main class="container mx-auto bg-white shadow-lg rounded-lg p-8 mt-10 max-w-6xl">
+      <h2 class="text-3xl text-red-500 font-bold text-center mb-6">
+        Here are our registered homes:
+      </h2>
+      <div class="flex flex-wrap justify-center gap-6">
+        <% registeredHomes.forEach(home => { %>
+          <div class="bg-white rounded-lg shadow-md overflow-hidden hover:shadow-lg transition duration-300 w-full max-w-sm">
+            <img src="https://scontent.fdel15-1.fna.fbcdn.net/v/t1.6435-9/95996760_598694284095560_9178273974008676352_n.jpg?_nc_cat=106&ccb=1-7&_nc_sid=127cfc&_nc_ohc=5Yd0aF7LD6IQ7kNvgGV-X4v&_nc_zt=23&_nc_ht=scontent.fdel15-1.fna&_nc_gid=AsCYfGmH_Pkv-QBEjzLOpTO&oh=00_AYA1IQNfjMaqjp74esMPerjMVbhLNvZS7mxAaJ3Z-e4oTw&oe=673AC805" alt="<%= home.houseName %>" class="w-full h-48 object-cover">
+            <div class="p-4">
+              <h3 class="text-xl font-semibold text-gray-800 mb-2"><%= home.houseName %></h3>
+              <p class="text-gray-600 mb-2"><i class="fas fa-map-marker-alt mr-2"></i><%= home.location %></p>
+              <div class="flex justify-between items-center mb-2">
+                <span class="text-lg font-bold text-red-500">Rs<%= home.price %> / night</span>
+                <div class="flex items-center">
+                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="w-5 h-5 text-yellow-400 mr-1">
+                    <path fill-rule="evenodd" d="M10.788 3.21c.448-1.077 1.976-1.077 2.424 0l2.082 5.007 5.404.433c1.164.093 1.636 1.545.749 2.305l-4.117 3.527 1.257 5.273c.271 1.136-.964 2.033-1.96 1.425L12 18.354 7.373 21.18c-.996.608-2.231-.29-1.96-1.425l1.257-5.273-4.117-3.527c-.887-.76-.415-2.212.749-2.305l5.404-.433 2.082-5.006z" clip-rule="evenodd" />
+                  </svg>
+                  <span class="text-gray-700"><%= home.rating %></span>
+                </div>
+              </div>
+            </div>
+          </div>
+        <% }) %>
+      </div>
+    </main>
+  </body>
+</html>

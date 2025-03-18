@@ -1,0 +1,24 @@
+<%- include('../partials/head') %>
+  </head>
+  <body>
+    <%- include('../partials/nav') %>
+    <main class="container mx-auto mt-8 p-8 bg-white rounded-lg shadow-md">
+      <h1 class="text-3xl font-bold mb-6 text-center text-gray-800">Login with your info</h1>
+      <form action="/login" method="POST" class="max-w-md mx-auto">
+        <input
+          type="text"
+          name="username"
+          placeholder="Email/Username"
+          class="w-full px-4 py-2 mb-4 border rounded-md focus:outline-none focus:ring-2 focus:ring-red-500"
+          required />
+        <input
+          type="password"
+          name="password"
+          placeholder="Enter Your Password"
+          class="w-full px-4 py-2 mb-4 border rounded-md focus:outline-none focus:ring-2 focus:ring-red-500"
+          required/>
+        <input type="submit" value="Sign In" class="w-full bg-red-500 text-white py-2 rounded-md hover:bg-red-600 transition duration-300" />
+      </form>
+    </main>
+  </body>
+</html>

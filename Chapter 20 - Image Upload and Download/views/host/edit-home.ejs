@@ -4,7 +4,7 @@
     <%- include('../partials/nav') %>
     <main class="container mx-auto mt-8 p-8 bg-white rounded-lg shadow-md">
       <h1 class="text-3xl font-bold mb-6 text-center text-gray-800"><%= editing ? "Edit" : "Register"%> Your Home on AirBnB</h1>
-      <form action="/host/<%= editing ? "edit-home" : "add-home"%>" method="POST" class="max-w-md mx-auto">
+      <form action="/host/<%= editing ? "edit-home" : "add-home"%>" method="POST" enctype="multipart/form-data" class="max-w-md mx-auto">
         <input type="hidden" name="id" value="<%= editing ? home._id : ''%>" />
         <input
           type="text"
@@ -31,10 +31,9 @@
           placeholder="Rating"
           class="w-full px-4 py-2 mb-4 border rounded-md focus:outline-none focus:ring-2 focus:ring-red-500"/>
         <input
-          type="text"
-          name="photoUrl"
-          value="<%= editing ? home.photoUrl : ''%>"
-          placeholder="Enter Photo URL"
+          type="file"
+          name="photo"
+          accept="image/jpg, image/jpeg, image/png"
           class="w-full px-4 py-2 mb-4 border rounded-md focus:outline-none focus:ring-2 focus:ring-red-500"/>
         <textarea
           name="description"

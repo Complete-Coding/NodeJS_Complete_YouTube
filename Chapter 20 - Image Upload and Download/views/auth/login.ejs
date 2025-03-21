@@ -1,0 +1,62 @@
+<%- include('../partials/head') %>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+  </head>
+  <body class="bg-gray-100">
+    <%- include('../partials/nav') %>
+    <main class="container mx-auto mt-8 p-8 bg-white rounded-lg shadow-md max-w-2xl">
+      <h1 class="text-3xl font-bold mb-6 text-center text-gray-800 border-b pb-4">Welcome Back</h1>
+      
+      <form action="/login" method="POST" class="max-w-md mx-auto">
+        <%- include('../partials/errors') %>
+        
+        <!-- Email field -->
+        <div class="mb-5">
+          <label for="email" class="block text-sm font-medium text-gray-700 mb-1">Email Address</label>
+          <div class="relative">
+            <span class="absolute inset-y-0 left-0 flex items-center pl-3 text-gray-500">
+              <i class="fas fa-envelope"></i>
+            </span>
+            <input
+              type="email"
+              id="email"
+              name="email"
+              placeholder="your.email@example.com"
+              value="<%= oldInput.email ? oldInput.email : '' %>"
+              class="w-full pl-10 px-4 py-3 border rounded-md focus:outline-none focus:ring-2 focus:ring-red-500 focus:border-red-500 transition"
+              required />
+          </div>
+        </div>
+        
+        <!-- Password field -->
+        <div class="mb-6">
+          <div class="flex items-center justify-between mb-1">
+            <label for="password" class="block text-sm font-medium text-gray-700">Password</label>
+          </div>
+          <div class="relative">
+            <span class="absolute inset-y-0 left-0 flex items-center pl-3 text-gray-500">
+              <i class="fas fa-lock"></i>
+            </span>
+            <input
+              type="password"
+              id="password"
+              name="password"
+              placeholder="Enter Your Password"
+              class="w-full pl-10 px-4 py-3 border rounded-md focus:outline-none focus:ring-2 focus:ring-red-500 focus:border-red-500 transition"
+              required/>
+          </div>
+        </div>
+        
+        <!-- Submit button with animation -->
+        <button type="submit" class="w-full bg-red-500 text-white py-3 rounded-md hover:bg-red-600 focus:ring-4 focus:ring-red-300 font-medium transition duration-300 flex items-center justify-center">
+          <span>Sign In</span>
+          <i class="fas fa-sign-in-alt ml-2"></i>
+        </button>
+        
+        <!-- Sign up link -->
+        <p class="text-center mt-6 text-gray-600">
+          Don't have an account yet? <a href="/signup" class="text-red-500 hover:underline">Sign up</a>
+        </p>
+      </form>
+    </main>
+  </body>
+</html>
